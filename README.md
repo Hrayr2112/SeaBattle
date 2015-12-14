@@ -16,6 +16,7 @@ public:
 class Ship {
 private:
 public:
+        Ship();
 	void ship_place(int _string, int _column, int ship_size, int direction); // Фyнкция размещения кораблей игрока по навправлению и координатам 
 };
 

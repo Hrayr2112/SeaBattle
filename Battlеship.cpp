@@ -9,12 +9,15 @@ private:
 	int board_for_hits[10][10];
 public:
 	Board();
+        int* operator [](int i){
+        return board_for_hits[i]
+        }
 };
 
 class Ship {
 private:
 public:
-        Ship();
+        Ship(Board&);
         // Фyнкция размещения кораблей игрока по навправлению и координатам
 	void ship_place(int _string, int _column, int ship_size, int direction); 
 };
@@ -22,8 +25,8 @@ public:
 class Shot {
 private:
 public:
+        Shot(Board&); // Отстреливание компьютером
 	void hit(Board&, char character, int digit); // Отстреливание игроком
-	void hit_PC(Board&); // Отстреливание компьютером
 };
 
 int main()

@@ -10,7 +10,7 @@ private:
 public:
 	Board();
         int* operator [](int i){
-        return board_for_hits[i]
+        return board_for_hits[i];
         }
 };
 

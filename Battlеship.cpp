@@ -25,9 +25,9 @@ private:
 	Board& board;
 	Board enemyBoard;
 public:
+     // qani vor voch initializacvac ssilka chi kareli toxel classi mej, 
+     // senc petqa grvi konstruktorum, vore kstana boarde u miangamic klasse sarqelu jamanak initializacni
 	CommandHandler(Board& b) :
- // qani vor voch initializacvac ssilka chi kareli toxel classi mej, 
- // senc petqa grvi konstruktorum, vore kstana boarde u miangamic klasse sarqelu jamanak initializacni
 	board(b) {};				
 	void Player_fill();
 	void AI_fill(); 
@@ -36,7 +36,7 @@ public:
 int main()
 {
 	Board Player_Board, AI_Board;
-	CommandHandler Player(Player_Board), AI(AI_Board); //iranc sepakan CommandHandlernere
+	CommandHandler Player(Player_Board), AI(AI_Board);
 	Player.Player_fill();
 	cout << "Finished filling" << endl;
 	return 0;

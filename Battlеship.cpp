@@ -141,7 +141,9 @@ public:
      // qani vor voch initializacvac ssilka chi kareli toxel classi mej, 
      // senc petqa grvi konstruktorum, vore kstana boarde u miangamic klasse sarqelu jamanak initializacni
 	CommandHandler(Board& b) :
-	board(b) {};				
+	board(b) {};
+        // Будет хранить ифнормацию о состоянии и количестве кораблей игрока в любой момент игры	
+        void Ship_Information();			
 	void Player_fill(Board& enemyBoard)
 	{
 		int i, j, deck_2 = 3, deck_3 = 2, deck_4 = 1;

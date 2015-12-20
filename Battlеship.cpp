@@ -147,7 +147,8 @@ public:
 		int i, j, deck_2 = 3, deck_3 = 2, deck_4 = 1;
 		static int count = 0;
 		cin >> i >> j;
-		if (count >= 2 && enemyBoard[i][j] == '0')
+                //Автоматическая пометка координат на доске выстрелов игрока, где уже не может находится корабль
+		if (count >= 2 && enemyBoard[i][j] == '0') 
 		{
 			if(count == 2)
 			{
@@ -210,10 +211,11 @@ public:
 				}
 				player_hit();
 			}
-			else if (enemyBoard[i][j] == '0')
+			else if (enemyBoard[i][j] == empty_field)
 			{
 				infoBoard[i][j] = 'M';
 			}
+                        // Повторный выстрел при повторении ранее заданных координат
 			else if (infoBoard[i][j] == 'M')
 			{
 				cout << "Repeat your turn please" << endl;

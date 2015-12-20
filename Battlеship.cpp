@@ -33,6 +33,7 @@ public:
 			cout << endl;
 		}
 	}
+        //stuguma navi mas karelia @tex dnel te che, stugelov ira bolor 8 koxmere (diagonalnern el hete)
 	bool isFree(int x, int y)
 	{
 		if (x < 0 || x >= 10 || y < 0 || y >= 10)
@@ -57,7 +58,6 @@ public:
 		}
 		return true;
 	}
-	bool isFree(int x, int y); //stuguma navi mas karelia @tex dnel te che, stugelov ira bolor 8 koxmere (diagonalnern el hete)
 };
 
 class CommandHandler // Игровые фyнкции для игрока и компьютера 

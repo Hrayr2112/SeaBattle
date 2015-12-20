@@ -161,40 +161,40 @@ public:
 			{
 				deck_4 -= 1;
 			}
-			infoBoard[i][j] = "promax";
+			infoBoard[i][j] = 'M';
 			if (enemyBoard[i + 1][j] == occupied_field)
 			{
-				for (int for_promax = 0; for_promax != count + 2; for_promax++)
+				for (int for_miss = 0; for_miss != count + 2; for_miss++)
 				{
-					infoBoard[i + for_promax][j + 1] = "promax";
+					infoBoard[i + for_miss][j + 1] = 'M';
 				}
 			}
 			if (enemyBoard[i - 1][j] == occupied_field)
 			{
-				for (int for_promax = 0; for_promax != count + 2; for_promax++)
+				for (int for_miss = 0; for_miss != count + 2; for_miss++)
 				{
-					infoBoard[i - for_promax][j - 1] = "promax";
+					infoBoard[i - for_miss][j - 1] = 'M';
 				}
 			}
 			if (enemyBoard[i][j - 1] == occupied_field)
 			{
-				for (int for_promax = 0; for_promax != count + 2; for_promax++)
+				for (int for_miss = 0; for_miss != count + 2; for_miss++)
 				{
-					infoBoard[i - 1][j - for_promax] = "promax";
+					infoBoard[i - 1][j - for_miss] = 'M';
 				}
 			}
 			if (enemyBoard[i][j + 1] == occupied_field)
 			{
-				for (int for_promax = 0; for_promax != count + 2; for_promax++)
+				for (int for_miss = 0; for_miss != count + 2; for_miss++)
 				{
-					infoBoardd[i + 1][j + for_promax] = "promax";
+					infoBoardd[i + 1][j + for_promax] = 'M';
 				}
 			}
 			count = 0;
 		}
 		if (i > 0 && i < 10 && j > 0 && j < 10)
 		{
-			if (enemyBoard[i][j] == "Ship")
+			if (enemyBoard[i][j] == 'S')
 			{
 				count++;
 				infoBoard[i][j] = occupied_field;
@@ -205,16 +205,16 @@ public:
 				}
 				if (count == 1 && deck_2 == 0 && deck_3 == 0 && deck_4 == 0)
 				{
-					cout << "Ship from one deck" << endl;
+					cout << "Ship with one deck" << endl;
 					count = 0;
 				}
 				player_hit();
 			}
 			else if (enemyBoard[i][j] == '0')
 			{
-				infoBoard[i][j] = "promax";
+				infoBoard[i][j] = 'M';
 			}
-			else if (infoBoard[i][j] == "promax")
+			else if (infoBoard[i][j] == 'M')
 			{
 				cout << "Repeat your turn please" << endl;
 				player_hit();

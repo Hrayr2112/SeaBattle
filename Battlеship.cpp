@@ -227,31 +227,65 @@ public:
 			cout << "Incorrect coordinates" << endl;
 		}
 	}
-        void AI_fill()
+        void AI_move(Board& enemyBoard) {
+
+	srand(time(NULL));
+	int length_of_ship = 0;
+	int x = rand()% 10;
+	int y = rand()% 10;
+	while(is_tested(infoBoard[x][y]) )
 	{
-		int x0, y0, x1, y1;
-		auto place = [&](int size) {
-			board.print();
-			do
-			{
-				x0 = rand() % (N - size);
-				y0 = rand() % (N - size);
-				if (rand() % 2 == 0)
-				{
-					x1 = x0;
-					y1 = y0 + size - 1;
-				}
-				else
-				{
-					y1 = y0;
-					x1 = x0 + size - 1;
-				}
-			} while (try_to_place(x0, y0, x1, y1, size, cout) == false);
-		};
-		place(4);
-		for (int i = 3; i > 0; i--)
-			for (int k = 0; k < 5 - i; k++) 
-				place(i);
+		x = rand()% 10;
+		y = rand()% 10;
+	}
+
+
+	if (enemyBoard[x][y] == occupied_field)
+	{
+		infoBoard[x][y] = hit_field;
+		length_of_ship++;
+		int second_hit_x = rand()% 2 + x - 1;
+		int second_hit_y = rand()% 2 + y - 1;
+		while(second_hit_x == x || second_hit_y == y || is_tested(infoBoard[second_hit_x][second_hit_y]))
+		{
+			second_hit_x = rand()% 2 + x - 1;
+			second_hit_y = rand()% 2 + y - 1;
+		}
+		if (enemyBoard[second_hit_x][second_hit_y] == empty_field)
+		{
+			infoBoard[second_hit_x][second_hit_y] = empty_field;
+		}
+		else if(enemyBoard[second_hit_x][second_hit_y] == destroyed_field)
+		{
+
+		}
+	}
+
+	else if (enemyBoard[x][y] == empty_field)
+	{
+		infoBoard[x][y] = empty_field;
+	}
+
+	else if(enemyBoard[x][y] == destroyed_field) // entadrvuma vor ete nav@ mihatanoca uremn destroyed a talis
+	{
+		infoBoard[x][y] = destroyed_field;
+		if (x > 0)
+		{
+			if (y > 0)
+				infoBoard[x - 1][y - 1] = empty_field;
+			
+			if (y < 9)
+				infoBoard[x - 1][y + 1] = empty_field;
+		}
+		if (x < 9)
+		{
+			if (y > 0)
+				infoBoard[x + 1][y - 1] = empty_field;
+			
+			if (y < 9)
+				infoBoard[x + 1][y + 1] = empty_field;
+		}
+		ship_count[length_of_ship - 1]--;
 	}
 };
 

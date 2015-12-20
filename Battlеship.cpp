@@ -13,8 +13,19 @@ class Board
 private:
 	char board[N][N];
 public:
-	Board(); 
-	char* operator[](int i); 
+	Board()
+	{
+		for (int i = 0; i < N; i++)
+		{
+			for (int j = 0; j < N; j++)
+			{
+				board[i][j] = empty_field;
+			}
+		}
+	char* operator[](int i)
+        {
+             return board[i];
+        }
 	void print()
 	{
 		cout << "    ";

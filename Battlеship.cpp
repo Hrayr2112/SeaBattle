@@ -1,15 +1,18 @@
-#include<iostream>
+﻿#include<iostream>
 #include<fstream>
 #include<vector>
 #include<string>
 #include<map>
 using namespace std;
+
+
 const int N = 10;
 const char empty_field = '0'; 
 const char occupied_field = '1';
 const char destroyed_field = '2';
-class Board
-{
+
+
+class Board {
 private:
 	char board[N][N];
 public:

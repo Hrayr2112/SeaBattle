@@ -61,7 +61,7 @@ bool CommandHandler::try_to_place(int x0, int y0, int x1, int y1, int size, ostr
 	}
 }
 
-void CommandHandler::Player_fill(Board & enemyBoard) {
+void CommandHandler::Player_fill(Board& enemyBoard) {
 	int i, j, deck_2 = 3, deck_3 = 2, deck_4 = 1;
 	static int count = 0;
 	cin >> i >> j;
@@ -126,7 +126,7 @@ void CommandHandler::Player_fill(Board & enemyBoard) {
 				cout << "Ship with one deck" << endl;
 				count = 0;
 			}
-			Player_fill(board);
+			Player_fill(enemyBoard);
 		}
 		else if (enemyBoard[i][j] == empty_field)
 		{
@@ -135,7 +135,7 @@ void CommandHandler::Player_fill(Board & enemyBoard) {
 		else if (infoBoard[i][j] == 'M')
 		{
 			cout << "Repeat your turn please" << endl;
-			Player_fill(board);
+			Player_fill(enemyBoard);
 		}
 	}
 	else

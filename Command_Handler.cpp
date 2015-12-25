@@ -108,6 +108,10 @@ void CommandHandler::Player_fill(Board& enemyBoard) {
 				infoBoard[i + 1][j + for_miss] = 'M';
 			}
 		}
+		if (count == 4)
+		{
+			cout << "The biggest ship!" << endl;
+		}
 		count = 0;
 	}
 	if (i > 0 && i < 10 && j > 0 && j < 10)
@@ -116,14 +120,14 @@ void CommandHandler::Player_fill(Board& enemyBoard) {
 		{
 			count++;
 			infoBoard[i][j] = occupied_field;
-			if (count == 4)
-			{
-				cout << "The biggest ship!" << endl;
-				count = 0;
-			}
-			if (count == 1 && deck_2 == 0 && deck_3 == 0 && deck_4 == 0)
+		
+			if (deck_2 == 0 && deck_3 == 0 && deck_4 == 0)
 			{
 				cout << "Ship with one deck" << endl;
+				infoBoard[i + 1][j] == occupied_field;
+				infoBoard[i - 1][j] == occupied_field;
+				infoBoard[i][j + 1] == occupied_field;
+				infoBoard[i][j - 1] == occupied_field;
 				count = 0;
 			}
 			Player_fill(enemyBoard);

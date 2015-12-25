@@ -80,28 +80,28 @@ void CommandHandler::Player_fill(Board& enemyBoard) {
 			deck_4 -= 1;
 		}
 		infoBoard[i][j] = 'M';
-		if (enemyBoard[i + 1][j] == occupied_field)
+		if (enemyBoard[i + 1][j] == occupied_field && infoBoard[i + 1][j] == occupied_field)
 		{
 			for (int for_miss = 0; for_miss != count + 2; for_miss++)
 			{
 				infoBoard[i + for_miss][j + 1] = 'M';
 			}
 		}
-		if (enemyBoard[i - 1][j] == occupied_field)
+		if (enemyBoard[i - 1][j] == occupied_field && infoBoard[i - 1][j] == occupied_field)
 		{
 			for (int for_miss = 0; for_miss != count + 2; for_miss++)
 			{
 				infoBoard[i - for_miss][j - 1] = 'M';
 			}
 		}
-		if (enemyBoard[i][j - 1] == occupied_field)
+		if (enemyBoard[i][j - 1] == occupied_field && infoBoard[i][j - 1] == occupied_field)
 		{
 			for (int for_miss = 0; for_miss != count + 2; for_miss++)
 			{
 				infoBoard[i - 1][j - for_miss] = 'M';
 			}
 		}
-		if (enemyBoard[i][j + 1] == occupied_field)
+		if (enemyBoard[i][j + 1] == occupied_field && infoBoard[i][j + 1] == occupied_field)
 		{
 			for (int for_miss = 0; for_miss != count + 2; for_miss++)
 			{

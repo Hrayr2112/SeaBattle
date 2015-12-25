@@ -62,23 +62,11 @@ bool CommandHandler::try_to_place(int x0, int y0, int x1, int y1, int size, ostr
 }
 
 void CommandHandler::Player_fill(Board& enemyBoard) {
-	int i, j, deck_2 = 3, deck_3 = 2, deck_4 = 1;
+	int i, j;
 	static int count = 0;
 	cin >> i >> j;
 	if (count >= 2 && enemyBoard[i][j] == '0')
 	{
-		if (count == 2)
-		{
-			deck_2 -= 1;
-		}
-		if (count == 3)
-		{
-			deck_3 -= 1;
-		}
-		if (count == 4)
-		{
-			deck_4 -= 1;
-		}
 		infoBoard[i][j] = 'M';
 		if (enemyBoard[i + 1][j] == occupied_field && infoBoard[i + 1][j] == occupied_field)
 		{
@@ -108,10 +96,6 @@ void CommandHandler::Player_fill(Board& enemyBoard) {
 				infoBoard[i + 1][j + for_miss] = 'M';
 			}
 		}
-		if (count == 4)
-		{
-			cout << "The biggest ship!" << endl;
-		}
 		count = 0;
 	}
 	if (i > 0 && i < 10 && j > 0 && j < 10)
@@ -120,16 +104,6 @@ void CommandHandler::Player_fill(Board& enemyBoard) {
 		{
 			count++;
 			infoBoard[i][j] = occupied_field;
-		
-			if (deck_2 == 0 && deck_3 == 0 && deck_4 == 0)
-			{
-				cout << "Ship with one deck" << endl;
-				infoBoard[i + 1][j] == occupied_field;
-				infoBoard[i - 1][j] == occupied_field;
-				infoBoard[i][j + 1] == occupied_field;
-				infoBoard[i][j - 1] == occupied_field;
-				count = 0;
-			}
 			Player_fill(enemyBoard);
 		}
 		else if (enemyBoard[i][j] == empty_field)
